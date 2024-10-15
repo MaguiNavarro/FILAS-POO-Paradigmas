@@ -25,7 +25,7 @@ int main() {
     cout << "Cantidad de elementos iguales a " << X << ": " << ContarX(fila, X) << endl;
 
     // Mostramos la fila después de ContarX
-    cout << "Fila después de ContarX: ";
+    cout << "Fila despues de ContarX: ";
     fila.Mostrar();
 
     // Probamos el constructor copia

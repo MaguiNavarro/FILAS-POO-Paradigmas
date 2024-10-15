@@ -47,13 +47,6 @@ public:
     void Mostrar() const;
 };
 
-Fila::Fila(/* args */)
-{
-}
-
-Fila::~Fila()
-{
-}
 
 
 #endif
