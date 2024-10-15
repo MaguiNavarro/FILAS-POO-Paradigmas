@@ -80,14 +80,3 @@ void Fila::Mostrar() const {
     cout << endl;
 }
 
-// Función que cuenta los elementos iguales a X en la fila
-int ContarX(Fila fila, int X) {
-    int contador = 0;
-    while (!fila.EsFilaVacia()) {
-        if (fila.Frente() == X) {
-            contador++;
-        }
-        fila.Defila();
-    }
-    return contador;
-}

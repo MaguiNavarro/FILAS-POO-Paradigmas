@@ -4,49 +4,34 @@
 
 using namespace std;
 
-int contarX(Fila F, item X);
+int ContarX(Fila F, item X);
 
 int main() {
 
-	// Creo un objeto fila con el constructor por defecto
-	Fila F;
 
-	// Controlo si la fila fue inicializada correctamente con el constructor
-	if(F.EsFilaVacia())
-		cout<<"CORRECTO - La Fila esta vacia"<<endl;
-	else
-		cout<<"ERROR - La Fila deberia estar vacia"<<endl;
+	// Creamos una fila y agregamos algunos elementos
+    Fila fila;// Creo un objeto fila con el constructor por defecto
+    fila.Enfila(1);
+    fila.Enfila(2);
+    fila.Enfila(3);
+    fila.Enfila(1);
+    fila.Enfila(5);
 
-	// Ingreso 3 items a la fila muestro el frente de la fila y la fila completa
-	F.Enfila(1);
-	F.Enfila(2);
-	F.Enfila(3);
+  
+    cout << "Fila original: ";
+    fila.Mostrar();
 
-	cout<<"El frente de la fila es: "<<F.Frente()<<endl;
+    int X = 1;
+    cout << "Cantidad de elementos iguales a " << X << ": " << ContarX(fila, X) << endl;
 
-	cout<<"Contenido de la fila luego de insertar 3 items"<<endl;
-	F.Mostrar();
+    // Mostramos la fila después de ContarX
+    cout << "Fila después de ContarX: ";
+    fila.Mostrar();
 
-	// Escribo la longitud de la fila 
-	cout<<"Longitud de la fila luego de insertar 3 items: "<<F.Longitud()<<endl;
-
-	// Elimino el frente de la fila y muestro la fila
-	F.Defila();
-
-	cout<<"Contenido de la fila luego de eliminar el frente"<<endl;
-	F.Mostrar();
-
-	// Pruebo la operaci�n Pertenece con un elemento que se encuentra en la fila 
-	if(F.Pertenece(3))
-			cout<<"CORRECTO - El elemento pertenece a la fila"<<endl;
-		else
-			cout<<"ERROR - El elemento si pertence a la fila"<<endl;
-
-	// Pruebo la operaci�n Pertenece con un elemento que se encuentra en la fila 
-	if(F.Pertenece(999))
-			cout<<"ERROR - El elemento NO pertenece a la fila"<<endl;
-		else
-			cout<<"CORRECTO - El elemento no pertence a la fila"<<endl;
+    // Probamos el constructor copia
+    Fila filaCopia(fila);
+    cout << "Fila copia: ";
+    filaCopia.Mostrar();
 
 	// PUNTO 4) c.
 
@@ -65,8 +50,14 @@ int main() {
 	return 0 ;
 }
 
-int contarX(Fila F, item X){
-
-	//Implementar 
-	
+// Función que cuenta los elementos iguales a X en la fila
+int ContarX(Fila fila, item X) {
+    int contador = 0;
+    while (!fila.EsFilaVacia()) {
+        if (fila.Frente() == X) {
+            contador++;
+        }
+        fila.Defila();
+    }
+    return contador;
 }
